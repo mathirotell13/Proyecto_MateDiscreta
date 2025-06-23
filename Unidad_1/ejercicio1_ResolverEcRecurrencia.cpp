@@ -4,21 +4,21 @@
 #include <stdexcept>
 using namespace std;
 
-// Funci髇 para resolver un sistema 2x2
+// Funci贸n para resolver un sistema 2x2
 pair<double, double> resolverSistema2x2(double a1, double b1, double c1, double a2, double b2, double c2) {
     double det = a1 * b2 - a2 * b1;
-    if (det == 0) throw runtime_error("Sistema sin soluci髇 鷑ica");
+    if (det == 0) throw runtime_error("Sistema sin soluci贸n 煤nica");
     double A = (c1 * b2 - c2 * b1) / det;
     double B = (a1 * c2 - a2 * c1) / det;
     return {A, B};
 }
 
-// Funci髇 para resolver sistema 3x3 (por regla de Cramer simplificada)
+// Funci贸n para resolver sistema 3x3 (por regla de Cramer simplificada)
 vector<double> resolverSistema3x3(vector<vector<double>> mat, vector<double> rhs) {
     double D = mat[0][0]*(mat[1][1]*mat[2][2]-mat[1][2]*mat[2][1])
              - mat[0][1]*(mat[1][0]*mat[2][2]-mat[1][2]*mat[2][0])
              + mat[0][2]*(mat[1][0]*mat[2][1]-mat[1][1]*mat[2][0]);
-    if (D == 0) throw runtime_error("Sistema sin soluci髇 鷑ica");
+    if (D == 0) throw runtime_error("Sistema sin soluci贸n 煤nica");
 
     vector<double> result(3);
     for (int i = 0; i < 3; i++) {
@@ -54,20 +54,20 @@ int main() {
         cin >> condiciones[i];
     }
 
-    // Ecuaci髇 caracter韘tica
+    // Ecuaci贸n caracter铆stica
     // r^n = c1*r^(n-1) + c2*r^(n-2) + ...
     vector<double> raices(grado);
 
     if (grado == 1) {
         raices[0] = coef[0];
         double A = condiciones[0];
-        cout << "\nT閞mino general: a(n) = " << A << " * (" << raices[0] << ")^n\n";
+        cout << "\nT茅rmino general: a(n) = " << A << " * (" << raices[0] << ")^n\n";
     } else if (grado == 2) {
         double a = 1, b = -coef[0], c = -coef[1];
         double discriminante = b*b - 4*a*c;
 
         if (discriminante < 0) {
-            cout << "Ra韈es complejas no implementadas en este ejemplo.\n";
+            cout << "Ra铆ces complejas no implementadas en este ejemplo.\n";
             return 1;
         }
 
@@ -77,14 +77,14 @@ int main() {
 		double A = AB.first;
 		double B = AB.second;
 
-        cout << "\nT閞mino general: a(n) = " << A << " * (" << r1 << ")^n + " << B << " * (" << r2 << ")^n\n";
+        cout << "\nT茅rmino general: a(n) = " << A << " * (" << r1 << ")^n + " << B << " * (" << r2 << ")^n\n";
     } else if (grado == 3) {
         double a = 1;
         double b = -coef[0];
         double c = -coef[1];
         double d = -coef[2];
 
-        cout << "\nPara grado 3, ingrese manualmente las ra韈es r1, r2, r3 (real y distintas):\n";
+        cout << "\nPara grado 3, ingrese manualmente las ra铆ces r1, r2, r3 (real y distintas):\n";
         for (int i = 0; i < 3; i++) {
             cout << "r" << i+1 << ": ";
             cin >> raices[i];
@@ -99,7 +99,7 @@ int main() {
         vector<double> rhs = {condiciones[0], condiciones[1], condiciones[2]};
         vector<double> ABC = resolverSistema3x3(mat, rhs);
 
-        cout << "\nT閞mino general: a(n) = ";
+        cout << "\nT茅rmino general: a(n) = ";
         for (int i = 0; i < 3; i++) {
             cout << ABC[i] << "*(" << raices[i] << ")^n";
             if (i < 2) cout << " + ";

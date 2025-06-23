@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-// Función para calcular términos de una recurrencia lineal homogénea
+// FunciÃ³n para calcular tÃ©rminos de una recurrencia lineal homogÃ©nea
 vector<double> resolverRecurrencia(int grado, const vector<double>& coeficientes,
                                    const vector<double>& condicionesIniciales, int n) {
     vector<double> solucion(n + 1);
@@ -12,7 +12,7 @@ vector<double> resolverRecurrencia(int grado, const vector<double>& coeficientes
         solucion[i] = condicionesIniciales[i];
     }
 
-    // Calcular los siguientes términos
+    // Calcular los siguientes tÃ©rminos
     for (int i = grado; i <= n; i++) {
         solucion[i] = 0;
         for (int j = 1; j <= grado; j++) {
@@ -55,18 +55,18 @@ int main() {
     }
 
     int m;
-    cout << "Ingrese el valor de m (término inicial a mostrar, 0 <= m <= n): ";
+    cout << "Ingrese el valor de m (tÃ©rmino inicial a mostrar, 0 <= m <= n): ";
     cin >> m;
     if (m < 0 || m > n) {
-        cout << "Rango inválido de m.\n";
+        cout << "Rango invÃ¡lido de m.\n";
         return 1;
     }
 
-    // Calcular todos los términos hasta n
+    // Calcular todos los tÃ©rminos hasta n
     vector<double> sol = resolverRecurrencia(grado, coef, cond, n);
 
     // Mostrar resultados desde m hasta n
-    cout << "\nTérminos de la recurrencia de a(" << m << ") a a(" << n << "):\n";
+    cout << "\nTÃ©rminos de la recurrencia de a(" << m << ") a a(" << n << "):\n";
     for (int i = m; i <= n; i++) {
         cout << "a(" << i << ") = " << sol[i] << endl;
     }

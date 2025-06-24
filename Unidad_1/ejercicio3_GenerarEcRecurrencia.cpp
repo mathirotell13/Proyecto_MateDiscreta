@@ -32,14 +32,14 @@ void Generar_EcRecurrencia(int grado) {
     if (grado == 2)
     {   double coef1 = -(r[0] + r[1]);
         double coef2 = r[0] * r[1];
-        cout<<"a_n - ("<< coef1 <<")a_{n-1} + ("<< coef2 <<")a_{n-2} = 0\n";
+        cout<<"a_n + ("<< coef1 <<")a_{n-1} + ("<< coef2 <<")a_{n-2} = 0\n";
     }
     else if (grado == 3)
     {
         double coef1 = -(r[0] + r[1] + r[2]);
         double coef2 = r[0]*r[1] + r[0]*r[2] + r[1]*r[2];
         double coef3 = -r[0]*r[1]*r[2];
-        cout << "a_n - ("<< coef1 <<")a_{n-1} + ("<< coef2 <<")a_{n-2} - ("<< coef3 <<")a_{n-3} = 0\n";
+        cout << "a_n + ("<< coef1 <<")a_{n-1} + ("<< coef2 <<")a_{n-2} + ("<< coef3 <<")a_{n-3} = 0\n";
     }
 
   //NOTA ADICIONAL: luego le agrego la opción para ver las condiciones iniciales a_0, a_1, a_2

@@ -42,7 +42,17 @@ void Generar_EcRecurrencia(int grado) {
         cout << "a_n + ("<< coef1 <<")a_{n-1} + ("<< coef2 <<")a_{n-2} + ("<< coef3 <<")a_{n-3} = 0\n";
     }
 
-  //NOTA ADICIONAL: luego le agrego la opción para ver las condiciones iniciales a_0, a_1, a_2
+    //Plus: Mostrar los primeros términos de la sucesión
+    cout << "\nPrimeros terminos de la sucesion:\n";
+    for (int n = 0; n < grado; n++)
+    {
+        double an = 0;
+        for (int i = 0; i < grado; i++)
+        {
+            an += A[i] * pow(r[i], n);
+        }
+        cout<< "a_"<<n<<" = "<<an<< endl;
+    }
 
 }
 

@@ -35,7 +35,7 @@ void Resolver_FuncionGeneradora(double num[2], double denom[3])
 
 			//Hallar los numeradores de las fracciones parciales
 			double A = (a1-a0*r2) / (r1-r2);
-			double B = A - a0;
+			double B = a0 - A;
 
 		cout<<"La solucion general es:\n";
 		cout<<"a_n = "<< A <<"*("<< r1 <<")^n + "<< B <<"*("<< r2 <<")^n\n";

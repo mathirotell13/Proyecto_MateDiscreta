@@ -5,11 +5,18 @@
 #include<cmath>
 using namespace std;
 
-void Resolver_FuncionGeneradora(double num[2], double denom[3])
+void Resolver_FuncionGeneradora()
 {
-	double m = denom[0];
-	double n = denom[1];
-	double p = denom[2];
+	double num[2], m, n, p;
+	cout<<"\nIngresa los coeficientes del numerador (ax + b): \n";
+        cout<<"- Ingresa a: ";    cin>>num[0];
+        cout<<"- Ingresa b: ";    cin>>num[1];
+
+	cout<<"\nIngresa los coeficientes del denominador (mx2 + nx + p): \n";
+        cout<<"- Ingresa m: ";    cin>>m;
+        cout<<"- Ingresa n: ";    cin>>n;
+        cout<<"- Ingresa p: ";    cin>>p;
+        
 
 	if (m != 0) //si m es diferente de 0
 	{
@@ -54,37 +61,25 @@ void Resolver_FuncionGeneradora(double num[2], double denom[3])
 		{cout << "ERROR: No es una funcion racional valida (denominador constante).\n";  return;}
 
 		double r1 = -p / n;
-		cout<<"\nDenominador es de grado 1. La única raíz es: r1 = " << r1 << "\n\n";
+		cout<<"\nDenominador es de grado 1. La unica raiz es: r1 = " << r1 << "\n\n";
 
 		double a0;
 		cout<<"Condiciones iniciales:\n";
 		cout<<"- Ingresa el valor de a_0: ";	cin>>a0;
 
-		double A = a0;
+		double A = (a0);
 
 		cout<<"La solucion general es:\n";
 		cout<<"a_n = " << A << "*(" << r1 << ")^n\n";
 
-		cout<<"La ecuación de recurrencia es:\n";
+		cout<<"La ecuacion de recurrencia es:\n";
 		cout<<"a_n - ("<<r1<<")a_{n-1} = 0\n";
 	}
 }
 
 
-
 int main()
 {
-    double num[2], den[3];
-    cout<<"\nIngresa los coeficientes del numerador (ax + b): \n";
-        cout<<"- Ingresa a: ";    cin>>num[0];
-        cout<<"- Ingresa b: ";    cin>>num[1];
-
-    cout<<"\nIngresa los coeficientes del denominador (mx2 + nx + p): \n";
-        cout<<"- Ingresa m: ";    cin>>den[0];
-        cout<<"- Ingresa n: ";    cin>>den[1];
-        cout<<"- Ingresa p: ";    cin>>den[2];
-        
-    Resolver_FuncionGeneradora(num, den);
-
+    Resolver_FuncionGeneradora();
     return 0;
 }

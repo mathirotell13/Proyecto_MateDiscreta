@@ -1,8 +1,10 @@
-#include<iostream>
-#include<cmath>
-using namespace std;
-
-void Generar_EcRecurrencia(int grado) {
+/Función a utilizar
+void Generar_EcRecurrencia()
+{
+	int grado;
+    cout<<"Ingresa el grado de la solucion: ";
+    cin>>grado;
+	
     if (grado != 2 && grado != 3) {
         cout<<"ERROR: El ejercicio te pide solo de grado 2 o 3.\n";
         return;
@@ -22,13 +24,13 @@ void Generar_EcRecurrencia(int grado) {
     for (int i = 0; i < grado; i++)
     {   for (int k = i+1; k < grado; k++)
         {   if (r[k]==r[i])
-            {   cout<<"ERROR: Las raices deben ser distintas.\n";
+            {   cout<<"Error: Las raices deben ser distintas.\n";
                 return;   }
         }
     }
 
     // Mostrar ecuación de recurrencia
-    cout<<"\nLa ecuación en recurrencia que satisface a_n es:\n";
+    cout<<"\nLa ecuacion en recurrencia que satisface a_n es:\n";
 
     if (grado == 2)
     {   double coef1 = -(r[0] + r[1]);
@@ -43,7 +45,7 @@ void Generar_EcRecurrencia(int grado) {
         cout << "a_n + ("<< coef1 <<")a_{n-1} + ("<< coef2 <<")a_{n-2} + ("<< coef3 <<")a_{n-3} = 0\n";
     }
 
-    //Plus: Mostrar los primeros términos de la sucesión
+    // Plus: Mostrar los primeros términos de la sucesión
     cout << "\nPrimeros terminos de la sucesion:\n";
     for (int n = 0; n < grado; n++)
     {
@@ -57,11 +59,8 @@ void Generar_EcRecurrencia(int grado) {
 
 }
 
-int main() {
-    int grado;
-    cout<<"Ingresa el grado de la solucion: ";
-    cin>>grado;
-
-    Generar_EcRecurrencia(grado);
-    return 0;
+int main() 
+{
+	Generar_EcRecurrencia();
+    return 0;    
 }
